@@ -2,31 +2,58 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>All-In-Pan</title>
     <link rel="stylesheet" href="/src/style.css" />
   </head>
-  <body class="min-h-screen">
-    <div class="h-10 bg-[#F0EEDD] text-[#670A18] text-xs flex justify-center items-center">SHIPPING AND RETURNS ARE ALWAYS FREE</div>
-    <header class="sticky top-0 z-10 h-19">
-      <nav class="h-full bg-white shadow-xl flex justify-between px-12">
-        <div class="flex-1 flex justify-start items-center">
+
+  <body class="w-screen min-h-screen overflow-x-hidden">
+    <div class="hidden md:flex h-10 bg-[#F0EEDD] text-[#670A18] text-xs justify-center items-center">SHIPPING AND RETURNS ARE ALWAYS FREE</div>
+
+    <header class="sticky top-0 z-10 h-[5rem]">
+      <nav class="h-full bg-white shadow-xl border-b border-gray-400 flex justify-between px-[1rem] md:px-12">
+        <div class="hidden md:flex flex-1 justify-start items-center">
           <a href="#" class="nav__link">SHOP</a>
           <a href="#" class="nav__link">ALWAYS PAN</a>
         </div>
-        <div class="flex-1 flex justify-center items-center text-xl font-bold"><h2>All-In-Pan</h2></div>
-        <div class="flex-1 flex justify-end items-center">
-          <a href="#" class="nav__link">MISSION</a>
+        <div class="flex-1 flex justify-center items-center">
+          <img src="/logo.png" alt="logo" id="logo" />
+        </div>
+        <div class="hidden md:flex flex-1 justify-end items-center">
+          <a href="#mission" class="nav__link">MISSION</a>
           <a href="#" class="nav__link">FAQS</a>
         </div>
+
+        <div class="flex-1 flex md:hidden justify-end items-center">
+          <button id="menu-btn" class="relative w-6 h-5 flex flex-col justify-between z-50 group">
+            <span class="block h-[2px] bg-black transition-all duration-300 group-[.open]:rotate-45 group-[.open]:translate-y-[9px]"></span>
+            <span class="block h-[2px] bg-black transition-all duration-300 group-[.open]:opacity-0"></span>
+            <span class="block h-[2px] bg-black transition-all duration-300 group-[.open]:-rotate-45 group-[.open]:-translate-y-[9px]"></span>
+          </button>
+        </div>
       </nav>
+
+      <!-- Mobile Menu -->
+      <div
+        id="menu"
+        class="fixed top-[5rem] right-0 w-full h-[calc(100vh-5rem)] bg-white transform translate-x-full transition-transform duration-500 ease-in-out z-40"
+      >
+        <ul class="flex flex-col items-center justify-start h-full pt-[2rem] space-y-[2rem] text-xl font-semibold text-gray-800">
+          <li><a href="#">SHOP</a></li>
+          <li><a href="#">ALWAYS PAN</a></li>
+          <li><a href="#mission">MISSION</a></li>
+          <li><a href="#">FAQS</a></li>
+        </ul>
+      </div>
     </header>
 
     <main>
       <!-- Hero Section -->
-      <section id="hero" class="h-[38rem] bg-[url(/images/hero-bg.avif)] bg-cover grid grid-cols-4">
-        <div class="hero__block col-start-2 place-self-center w-[16rem] h-1/2 flex flex-col justify-between">
+      <section id="hero" class="h-[38rem] bg-[url(/images/hero-bg.avif)] bg-cover grid grid-cols-1 md:grid-cols-4">
+        <div
+          class="md:col-start-2 w-full md:self-center md:w-[16rem] h-full md:h-1/2 flex flex-col justify-center md:justify-between bg-black/40 md:bg-transparent p-4 text-white md:text-inherit px-[4rem] md:px-0 gap-[4rem] text-center md:text-left"
+        >
           <div>
             <p>MEET THE ALWAYS PAN</p>
             <br />
@@ -39,9 +66,10 @@
         </div>
       </section>
 
-      <section class="h-[14rem] bg-[#F5F1E9] flex flex-col justify-center items-center gap-16">
-        <span class="text-2xl font-bold">«DOING THE JOB OF EIGHT TRADITIONAL COOKWARE PIECES»</span>
-        <div class="h-[2rem] grid grid-rows-1 grid-cols-4 gap-18">
+      <!-- Media Logos Section -->
+      <section class="h-[14rem] bg-[#F5F1E9] flex flex-col justify-center items-center gap-8 md:gap-16">
+        <span class="text-2xl font-bold text-center">«DOING THE JOB OF EIGHT TRADITIONAL COOKWARE PIECES»</span>
+        <div class="w-full h-[4rem] md:h-[2rem] grid grid-rows-2 md:grid-rows-1 grid-cols-2 md:grid-cols-4 gap-y-[1.5rem] md:gap-[4.5rem]">
           <img src="/images/bon-appetit.png" alt="" />
           <img src="/images/new-york-times.png" alt="" />
           <img src="/images/vogue.png" alt="" />
@@ -49,18 +77,22 @@
         </div>
       </section>
 
-      <section class="h-[22rem] bg-[#fcfaf6] grid grid-rows-1 grid-cols-2 p-[7rem]">
-        <p class="flex justify-center items-center text-5xl font-bold tracking-wide text-center">Welcome to <br />All-In-Pan</p>
-        <p class="flex justify-center items-center text-justify">
-          At All-In-Pan, we believe in the magic of home-cooked meals to connect hearts and cultures. Our cookware is crafted to simplify your kitchen
-          without sacrificing style — inspired by diverse traditions, made for the modern home. We design with intention, choose materials
-          responsibly, and create sustainably — because every pan should serve both you and the planet.
+      <!-- Mission Section -->
+      <section
+        id="mission"
+        class="h-[22rem] bg-[#fcfaf6] grid grid-rows-2 md:grid-rows-1 grid-cols-1 md:grid-cols-2 p-[2rem] md:p-[7rem] text-center"
+      >
+        <p class="flex justify-center items-center text-5xl font-bold tracking-wide">Welcome to <br />All-In-Pan</p>
+        <p class="flex justify-center items-center md:text-justify">
+          At All-In-Pan, we believe home-cooked meals bring people together. Our cookware blends tradition with modern design — simplifying your
+          kitchen, respecting the planet, and connecting cultures through every dish.
         </p>
       </section>
 
-      <section class="h-[59rem] bg-[#FBF6EA] flex flex-col justify-center items-center gap-[4rem]">
+      <!-- Always Pan Section -->
+      <section class="h-[55rem] bg-[#FBF6EA] flex flex-col justify-center items-center gap-[4rem]">
         <div class="text-4xl text-center">Designed for Everything and Always</div>
-        <div class="flex gap-4">
+        <div class="flex gap-[0.5rem] sm:gap-[1rem]">
           <div class="w-8 h-8 rounded-full bg-[#e09d81]"></div>
           <div class="w-8 h-8 rounded-full bg-[#748ea1]"></div>
           <div class="w-8 h-8 rounded-full bg-[#b76d47]"></div>
@@ -70,39 +102,31 @@
           <div class="w-8 h-8 rounded-full bg-[#595752]"></div>
           <div class="w-8 h-8 rounded-full bg-[#d3c2ca]"></div>
         </div>
-        <div class="h-[35rem] flex uppercase text-center">
-          <div class="flex-1 flex flex-col justify-between items-center translate-x-[100%]">
-            <span>Modular lid to release & trap steam</span>
-            <span>2 easy-pour spouts</span>
-            <span>Exclusive, ceramic nonstick made without PFOAs & PTFEs</span>
-          </div>
-          <img class="flex-4" src="/images/always-pan.avif" alt="" />
-          <div class="flex-1 flex flex-col justify-between items-center -translate-x-[100%]">
-            <span>Beechwood spatula & built-in spoon rest</span>
-            <span>Nesting steamer basket & colander</span>
-            <span>Stay cool handle</span>
-          </div>
+        <div class="h-[25rem] md:h-[35rem] px-4">
+          <img src="/images/always-pan.avif" alt="Always Pan" />
         </div>
       </section>
 
-      <section class="h-[52rem] bg-[#fcfaf6] flex flex-col justify-center gap-[4rem] text-center">
-        <div class="w-[30rem] mx-auto">
-          <p class="text-4xl font-bold tracking-wide leading-[3.5rem]">From curated essentials to limited-run editions.</p>
+      <!-- Products Section -->
+      <section class="md:h-[52rem] bg-[#fcfaf6] flex flex-col justify-center gap-[4rem] py-[4rem] text-center">
+        <div class="md:w-[30rem] mx-auto px-[1rem] md:px-0">
+          <p class="text-4xl font-bold tracking-wide leading-[2.5rem] md:leading-[3.5rem]">From curated essentials to limited-run editions.</p>
+          <br />
           <p class="text-lg text-[#4F463F]">
             We make products inspired by traditions – and we're starting with one you might be familiar with: Dinner.
           </p>
         </div>
-        <div class="grid grid-rows-1 grid-cols-4 gap-[3rem] px-[3rem]">
+        <div class="grid grid-rows-4 md:grid-rows-1 grid-cols-1 md:grid-cols-4 gap-[3rem] px-[3rem]">
           <!-- Side bowls -->
           <div class="flex flex-col justify-between items-center gap-8">
             <div class="w-[18rem] h-[15rem] bg-[#f7f3eb] rounded-[50%]">
               <img class="-translate-y-4" src="/images/bowls.avif" alt="Side bowls" />
             </div>
 
-            <div class="w-[10rem] flex flex-col gap-2">
-              <p class="text-sm">SIDE BOWLS</p>
-              <p class="text-sm text-[#6E635A]">SET OF 4 - $45</p>
-              <p class="text-xs text-[#6E635A]">Hand-painted porcelain stackable bowls, designed for plating, eating, and scooping.</p>
+            <div class="w-full md:w-[10rem] flex flex-col gap-2">
+              <p class="text-xl md:text-sm">SIDE BOWLS</p>
+              <p class="text-lg md:text-sm text-[#6E635A]">SET OF 4 - $45</p>
+              <p class="md:text-xs text-[#6E635A]">Hand-painted porcelain stackable bowls, designed for plating, eating, and scooping.</p>
             </div>
 
             <div class="flex gap-4">
@@ -118,10 +142,10 @@
               <img class="-translate-y-4" src="/images/glasses.avif" alt="Drinking glasses" />
             </div>
 
-            <div class="w-[10rem] flex flex-col gap-2">
-              <p class="text-sm">DRINKING GLASSES</p>
-              <p class="text-sm text-[#6E635A]">SET OF 4 - $50</p>
-              <p class="text-xs text-[#6E635A]">
+            <div class="w-full md:w-[10rem] flex flex-col gap-2">
+              <p class="text-xl md:text-sm">DRINKING GLASSES</p>
+              <p class="text-lg md:text-sm text-[#6E635A]">SET OF 4 - $50</p>
+              <p class="md:text-xs text-[#6E635A]">
                 Hand-made and stackable. Made from recycled glass and natural sand. Naturally colored, without dyes.
               </p>
             </div>
@@ -140,10 +164,10 @@
               <img class="-translate-y-4" src="/images/plates.avif" alt="Main plates" />
             </div>
 
-            <div class="w-[10rem] flex flex-col gap-2">
-              <p class="text-sm">MAIN PLATES</p>
-              <p class="text-sm text-[#6E635A]">SET OF 4 - $50</p>
-              <p class="text-xs text-[#6E635A]">Hand-painted porcelain plates, stackable and designed for big appetites.</p>
+            <div class="w-full md:w-[10rem] flex flex-col gap-2">
+              <p class="text-xl md:text-sm">MAIN PLATES</p>
+              <p class="text-lg md:text-sm text-[#6E635A]">SET OF 4 - $50</p>
+              <p class="md:text-xs text-[#6E635A]">Hand-painted porcelain plates, stackable and designed for big appetites.</p>
             </div>
 
             <div class="flex gap-4">
@@ -159,10 +183,10 @@
               <img class="translate-y-4" src="/images/pan.avif" alt="Always pan" />
             </div>
 
-            <div class="w-[10rem] flex flex-col gap-2">
-              <p class="text-sm">ALWAYS PAN</p>
-              <p class="text-sm text-[#6E635A]">$145</p>
-              <p class="text-xs text-[#6E635A]">
+            <div class="w-full md:w-[10rem] flex flex-col gap-2">
+              <p class="text-xl md:text-sm">ALWAYS PAN</p>
+              <p class="text-lg md:text-sm text-[#6E635A]">$145</p>
+              <p class="md:text-xs text-[#6E635A]">
                 Thoughtfully designed to be the perfect size and shape to do the work of eight pieces of traditional cookware.
               </p>
             </div>
@@ -178,7 +202,8 @@
         </div>
       </section>
 
-      <section class="h-[30rem] bg-[#F5F1E9] grid grid-rows-1 grid-cols-3">
+      <!-- Call-to-Action Section -->
+      <section class="md:h-[30rem] bg-[#F5F1E9] grid grid-rows-3 md:grid-rows-1 grid-cols-1 md:grid-cols-3">
         <div>
           <img src="/images/dish-bg.avif" alt="" />
         </div>
@@ -200,30 +225,32 @@
       </section>
     </main>
 
-    <footer class="h-[41rem]">
-      <div class="h-[36rem] bg-[#6c674d] grid grid-rows-1 grid-cols-2">
-        <div class="flex flex-col gap-[4rem] px-[3rem] py-[5rem]">
+    <footer class="h-[calc(100vh-5rem)] md:h-[41rem] flex flex-col">
+      <!-- Top footer -->
+      <div class="flex-1 bg-[#6c674d] grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 gap-[1rem] px-[1rem] md:px-0">
+        <div class="flex flex-col justify-center md:justify-start gap-[4rem] md:px-[3rem] md:py-[5rem]">
           <div>
             <p class="text-2xl text-[#F5F1E9] tracking-[1px]">Keep in touch</p>
             <br />
             <p class="text-sm text-[#F5F1E9]">Be the first to know about new collections, special events, and what’s going on at Our Place.</p>
           </div>
           <form>
-            <div class="w-[28rem] h-[3.5rem] bg-[#F5F1E9] flex justify-between items-center text-xs font-bold">
+            <div class="w-full md:w-[28rem] h-[3.5rem] bg-[#F5F1E9] flex justify-between items-center text-xs font-bold">
               <input type="email" name="email" placeholder="Your email" class="flex-1 h-full px-[1rem] outline-none tracking-[1px]" />
               <button type="submit" class="h-full px-[2rem] border-l-1 border-[#6c674d]">SUBMIT</button>
             </div>
           </form>
         </div>
 
-        <div class="pl-[10rem] pr-[2rem] py-[5rem]">
-          <table class="w-full h-full table-fixed">
-            <thead class="text-[#F5F1E9] text-left">
+        <!-- Link Table -->
+        <div class="md:pl-[10rem] md:pr-[2rem] py-[1rem] md:py-[5rem]">
+          <table class="w-full h-full table-fixed border-separate [border-spacing:0_1rem]">
+            <thead class="text-[#F5F1E9] md:text-left">
               <th>SHOP</th>
               <th>COMPANY</th>
               <th>SOCIAL</th>
             </thead>
-            <tbody class="text-[#F5F1E999]">
+            <tbody class="text-[#F5F1E999] text-center md:text-left">
               <tr>
                 <td><a href="">Main Plates</a></td>
                 <td><a href="">Mission</a></td>
@@ -239,7 +266,7 @@
                 <td><a href="">Contact Us</a></td>
               </tr>
               <tr>
-                <td><a href="">Family Dinner Bundle</a></td>
+                <td><a href="">Dinner Bundle</a></td>
                 <td><a href="">Returns</a></td>
               </tr>
               <tr>
@@ -255,10 +282,12 @@
         </div>
       </div>
 
-      <div class="h-[5rem] bg-[#807c62] flex justify-between items-center px-12 text-sm text-[#FCFAF680]">
+      <!-- Bottom footer -->
+      <div
+        class="md:h-[5rem] bg-[#807c62] flex flex-col-reverse md:flex-row justify-between items-center gap-[1rem] py-[1rem] px-[2rem] text-sm text-[#FCFAF680]"
+      >
         <div>© All-In-Pan 2025</div>
-        <div class="flex gap-[3rem]">
-          <span>Copyright 2025</span>
+        <div class="flex gap-[4rem]">
           <span><a href="">Privacy</a></span>
           <span><a href="">Terms</a></span>
           <span><a href="">Returns</a></span>
