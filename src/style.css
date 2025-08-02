@@ -1,12 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import 'tailwindcss';
 
+:root {
+  --color-primary: #1e90ff;
+  --color-secondary: #ff6347;
+  --color-accent: #670a18;
+}
+
 html {
   font-family: 'Roboto', sans-serif;
+  color: #35312e;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+button {
+  cursor: pointer;
 }
 
 .nav__link {
+  position: relative;
   padding: 0.5rem 1.25rem;
   font-weight: 700;
   font-size: 0.75rem;
+  transition: color 0.3s;
+}
+
+.nav__link::after {
+  position: absolute;
+  content: '';
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transition: width 0.3s;
+}
+
+.nav__link:hover {
+  color: var(--color-accent);
+}
+
+.nav__link:hover::after {
+  width: 100%;
 }
